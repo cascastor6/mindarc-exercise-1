@@ -1,5 +1,6 @@
 # Exercise 1 by Ponch Castor
 Version: 1.0.2
+[Exercise 2](https://github.com/cascastor6/mindarc-exercise-2)
 
 ## Features
 - single JS file for both mobile and web versions of components

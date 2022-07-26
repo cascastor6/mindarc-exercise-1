@@ -1,40 +1,45 @@
-Introduction
----
-Thanks for taking the time to complete this frontend technical assessment. We will be focusing on software quality (scalability, readability, maintainability, etc.) and your eye for detail. You may include any libraries, but Vue.js is preferred and jQuery is not recommended. Along with following best practices, bonus points for following our [coding guidelines](https://github.com/mindarc/frontend-assessment/wiki/Coding-guidelines). 
+# Exercise 1 by Ponch Castor
+Version: 1.0.2
 
-Exercise 1
----
-Build a responsive page based on the designs.
+## Features
+- single JS file for both mobile and web versions of components
+- modular, easily reusable and modifiable components
+- separation of data/variables and UI elements
+- mobile and web UI
 
-##### Requirements
-1. Match the designs exactly.
-2. Needs to be responsive.
 
-##### Designs
-* exercise1-desktop.png
-* exercise1-mobile.png
+## Initialization and Running the App
+Download the repository from github, and then clone it into your machine with 'git clone <link-to-repository>'
+Change your terminal's directory to mindarc-exercise-1 (can be done using 'cd mindarc-exercise-1' in the console)
+Run 'npm install' to download the dependencies of the program
+Open up the directory in your terminal and type 'npm run start', then proceed to enter localhost:3000 into your browser's address bar to open the program
 
-##### Assets
-* Desktop banner - http://via.placeholder.com/1920x650
-* Mobile banner - http://via.placeholder.com/600x600
-* Content images - http://via.placeholder.com/400x300
+## Architecture
+The UI is separated into different folders per component with all relevant UI assets in a subfolder.
+An example component folder structure is:
+    - component
+        - component-name
+            - component-name.js (the exported React component)
+            - assets
+                - image.png (if any relevant)
+                - component-name.css
+Variable data is separated into data.js in the data folder see how to edit and add more data below.
 
-Exercise 2
----
-Read the `data.json` file and display the data as tabs on desktop and an accordion on mobile.
+## How to Use 
+### Responsive Design
+Using 'react-responsive' package, you can determine whether the viewport is mobile or desktop by pasting the following import at the top of your file
+```import { useMediaQuery } from "react-responsive";```
+Afterwards, paste this boolean into your function body and use it accordingly. 
+```
+const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 1224px)",
+  });
+```
 
-##### Requirements
-1. Display data in tabs on desktop.
-2. Display data in an accordion on mobile.
-3. Only 1 accordion/tab should be open at a time.
-4. Open the first accordion/tab on load.
-5. If the open accordion is selected, close it.
+### Changing name
+To change name from the default "Developer", change the value of "username" in src/data/data.js
 
-###### Bonus points
-* Improve the user experience with meaningful animations/transitions.
-* Design and styling.
-* Explain why the result of `('b' + 'a' + + 'a' + 'a').toLowerCase()` is `banana`.
+### Adding Article Cards
+To add extra images, copy the desired image into src/component/card/assets/ and import it as a named import to data.js, then use that as the image link.
 
-Submission
----
-We recommend submitting your completed assessment as a forked repository. Please replace README content with instructions and relevant documentation.
+To add article cards, simply access src/data/data.js and add to the array, adding a sub-array containing the image-link and body text of the new cards. 
